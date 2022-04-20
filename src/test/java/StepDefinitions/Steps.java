@@ -14,11 +14,11 @@ public class Steps {
 
 	@Given("user Launch Chrome Browser")
 	public void user_Launch_Chrome_Browser() {
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user")+"//Drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//Drivers/chromedriver.exe");
 		driver=new ChromeDriver();
 		lp=new LoginPage(driver);
 	}
-
+	
 	@When("User opens URL {string}")
 	public void user_opens_URL(String url) {
 		driver.get(url);
@@ -34,8 +34,9 @@ public class Steps {
 	}
 
 	@When("Click on Login")
-	public void click_on_Login() {
+	public void click_on_Login() throws InterruptedException {
 		lp.clickLogin();
+		Thread.sleep(3000);
 	}
 
 	@Then("Page title should be {string}")
