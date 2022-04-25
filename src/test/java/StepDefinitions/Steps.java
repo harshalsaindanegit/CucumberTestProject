@@ -57,8 +57,8 @@ public class Steps {
 			Assert.assertTrue(false);
 		}else
 			Assert.assertEquals(title, driver.getTitle());
+		Thread.sleep(2000);
 		driver.manage().window().maximize();
-		Thread.sleep(5000);
 	}	
 
 	@Then("close browser")
