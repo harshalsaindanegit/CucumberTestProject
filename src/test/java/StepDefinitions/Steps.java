@@ -1,17 +1,25 @@
 package StepDefinitions;
 
+import java.awt.AWTException;
+import java.awt.Robot;import java.awt.event.KeyEvent;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 //import io.cucumber.java.en.*;
 import pageObjects.LoginPage;
+import utilities.LibraryUtils;
+
 
 public class Steps {
 
@@ -41,7 +49,7 @@ public class Steps {
 		Thread.sleep(3000);
 			}
 	@Then("Page title should be {string}")
-	public void page_title_should_be(String title) {
+	public void page_title_should_be(String title) throws InterruptedException {
 
 		if (driver.getPageSource().contains("Login was unsuccessful."))
 		{
@@ -49,20 +57,13 @@ public class Steps {
 			Assert.assertTrue(false);
 		}else
 			Assert.assertEquals(title, driver.getTitle());
-	}
-
-	@When("User click on Log out link")
-	public void user_click_on_Log_out_link() throws InterruptedException {
-		WebElement  element=driver.findElement(By.xpath("\"//*[@id=\\\"navbarText\\\"]/ul/li[3]/a\""));  
-		JavascriptExecutor ex=(JavascriptExecutor)driver;
-		ex.executeScript("arguments[0].click()", element);
-		//lp.clickLogout();
-		Thread.sleep(3000);
-	}
+		driver.manage().window().maximize();
+		Thread.sleep(5000);
+	}	
 
 	@Then("close browser")
 	public void close_browser() {
-		driver.close();
+		driver.quit();
 	}
 
 }
