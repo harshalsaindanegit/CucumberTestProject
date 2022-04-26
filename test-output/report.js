@@ -4,10 +4,10 @@ formatter.feature({
   "description": "",
   "keyword": "Feature"
 });
-formatter.scenario({
-  "name": "Add new Customer",
+formatter.background({
+  "name": "",
   "description": "",
-  "keyword": "Scenario"
+  "keyword": "Background"
 });
 formatter.step({
   "name": "User Launch Chrome Browser",
@@ -48,6 +48,11 @@ formatter.match({
 });
 formatter.result({
   "status": "passed"
+});
+formatter.scenario({
+  "name": "Add new Customer",
+  "description": "",
+  "keyword": "Scenario"
 });
 formatter.step({
   "name": "User can view Dashboad",
@@ -79,10 +84,20 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
-formatter.scenario({
-  "name": "Search customer",
+formatter.step({
+  "name": "close browser",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "StepDefinitions.Steps.close_browser()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.background({
+  "name": "",
   "description": "",
-  "keyword": "Scenario"
+  "keyword": "Background"
 });
 formatter.step({
   "name": "User Launch Chrome Browser",
@@ -124,6 +139,11 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
+formatter.scenario({
+  "name": "Search customer",
+  "description": "",
+  "keyword": "Scenario"
+});
 formatter.step({
   "name": "User click on Edit",
   "keyword": "And "
@@ -140,6 +160,16 @@ formatter.step({
 });
 formatter.match({
   "location": "StepDefinitions.Steps.user_can_view_Edit_customer_page()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "close browser",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "StepDefinitions.Steps.close_browser()"
 });
 formatter.result({
   "status": "passed"

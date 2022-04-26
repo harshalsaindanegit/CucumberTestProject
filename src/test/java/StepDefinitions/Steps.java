@@ -84,9 +84,7 @@ public class Steps extends BaseClass{
 	public void user_can_view_Add_new_customer_page() throws Exception {
 		Thread.sleep(4000);
 		Assert.assertEquals(addcust.getPageTitle(),"Gtpl Bank New Customer Entry Page");
-		System.out.println("This is page title of New Customer" + addcust.getPageTitle());
-		driver.quit();
-		
+		System.out.println("This is page title of New Customer" + addcust.getPageTitle());		
 	}
 	
 	// Steps for search customer feature
@@ -101,9 +99,7 @@ public class Steps extends BaseClass{
 	@Then("User can view Edit customer page")
 	public void user_can_view_Edit_customer_page() throws Exception
 	{
-		Assert.assertEquals(driver.getTitle(),"Gtpl Bank Edit Customer Page");
-		driver.quit();
+		Assert.assertEquals(driver.getTitle(),"Gtpl Bank Edit Customer Page");		
 	}
-
 }
 
