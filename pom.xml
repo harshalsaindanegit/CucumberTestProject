@@ -17,7 +17,7 @@
 	</properties>
 
 	<dependencies>
-			<dependency>
+		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>3.141.59</version>
@@ -114,7 +114,11 @@
 			<artifactId>cucumber-bom</artifactId>
 			<version>7.3.1</version>
 			<type>pom</type>
-
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
 		</dependency>
 	</dependencies>
 

@@ -1,10 +1,11 @@
 package StepDefinitions;
 
 import org.openqa.selenium.WebDriver;
+import org.apache.log4j.Logger;
 
 import pageObjects.AddCustomerPage;
 import pageObjects.LoginPage;
-import pageObjects.SearchCustomerPage;
+
 
 public class BaseClass{
 	
@@ -12,5 +13,6 @@ public class BaseClass{
 	public LoginPage lp;
 	public AddCustomerPage addcust;
 	//public SearchCustomerPage searchcustomer;
+	public static Logger logger;
 
 }
