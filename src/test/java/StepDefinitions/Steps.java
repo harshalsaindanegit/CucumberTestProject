@@ -20,6 +20,7 @@ import io.cucumber.java.en.When;
 import pageObjects.AddCustomerPage;
 //import io.cucumber.java.en.*;
 import pageObjects.LoginPage;
+import pageObjects.SearchCustomerPage;
 import utilities.LibraryUtils;
 
 
@@ -35,14 +36,12 @@ public class Steps extends BaseClass{
 	@When("User opens URL {string}")
 	public void user_opens_URL(String url) {
 		driver.get(url);
-
 	}
 	@When("User enters Email as {string} and Password as {string}")
 	public void user_enters_Email_as_and_Password_as(String email, String password) {
 
 		lp.setUserName(email);
 		lp.setPasswprd(password);
-
 	}
 	@When("Click on Login")
 	public void click_on_Login() throws InterruptedException {
@@ -59,10 +58,8 @@ public class Steps extends BaseClass{
 		}else
 			Assert.assertEquals(title, driver.getTitle());
 		Thread.sleep(2000);
-		driver.manage().window().maximize();
-		
+		driver.manage().window().maximize();		
 	}	
-
 	@Then("close browser")
 	public void close_browser() {
 		driver.quit();
@@ -71,9 +68,10 @@ public class Steps extends BaseClass{
 	// Customers Feature step Definition
 
 	@Then("User can view Dashboad")
-	public void user_can_view_Dashboad() {
+	public void user_can_view_Dashboad() {	
 		addcust = new AddCustomerPage(driver);
-		Assert.assertEquals("GTPL Bank Manager HomePage ",addcust.getPageTitle());  
+		Assert.assertEquals(addcust.getPageTitle(),"GTPL Bank Manager HomePage");  
+		System.out.println("This is page title of Dashboard"+ addcust.getPageTitle());
 	}
 
 	@When("User click on new customer menu")
@@ -84,7 +82,22 @@ public class Steps extends BaseClass{
 
 	@Then("User can view Add new customer page")
 	public void user_can_view_Add_new_customer_page() throws Exception {
+		Thread.sleep(4000);
+		Assert.assertEquals(addcust.getPageTitle(),"Gtpl Bank New Customer Entry Page");
+		System.out.println("This is page title of New Customer" + addcust.getPageTitle());
+		driver.quit();
+		
+	}
+	
+	// Steps for search customer feature
+	
+	@When("User click on Edit")
+	public void user_click_edit() throws Exception
+	{
+		SearchCustomerPage searchcust=new SearchCustomerPage(driver);
+		searchcust.clickEdit();
 		Thread.sleep(3000);
-		Assert.assertEquals("Gtpl Bank New Customer Entry Page", addcust.getPageTitle());
+		Assert.assertEquals(driver.getTitle(),"Gtpl Bank Edit Customer Page");
 	}
 }
+

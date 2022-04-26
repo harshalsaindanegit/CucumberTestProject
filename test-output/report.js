@@ -1,11 +1,11 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:Features/Login.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:Features/Customer.feature");
 formatter.feature({
-  "name": "Login",
+  "name": "Customers",
   "description": "",
   "keyword": "Feature"
 });
 formatter.scenario({
-  "name": "Successful Login with valid credentials",
+  "name": "Add new Customer",
   "description": "",
   "keyword": "Scenario"
 });
@@ -50,77 +50,39 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "Page title should be \"GTPL Bank Manager HomePage\"",
+  "name": "User can view Dashboad",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "StepDefinitions.Steps.page_title_should_be(java.lang.String)"
+  "location": "StepDefinitions.Steps.user_can_view_Dashboad()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "close browser",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "StepDefinitions.Steps.close_browser()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.scenarioOutline({
-  "name": "Login Data Driven",
-  "description": "",
-  "keyword": "Scenario Outline"
-});
-formatter.step({
-  "name": "User Launch Chrome Browser",
-  "keyword": "Given "
-});
-formatter.step({
-  "name": "User opens URL \"https://demo.guru99.com/V1/index.php\"",
+  "name": "User click on new customer menu",
   "keyword": "When "
 });
-formatter.step({
-  "name": "User enters Email as \"\u003cEmail\u003e\" and Password as \"\u003cPassword\u003e\"",
-  "keyword": "And "
+formatter.match({
+  "location": "StepDefinitions.Steps.user_click_on_customers_Menu()"
+});
+formatter.result({
+  "status": "passed"
 });
 formatter.step({
-  "name": "Click on Login",
-  "keyword": "And "
-});
-formatter.step({
-  "name": "Page title should be \"GTPL Bank Manager HomePage\"",
+  "name": "User can view Add new customer page",
   "keyword": "Then "
 });
-formatter.step({
-  "name": "close browser",
-  "keyword": "And "
+formatter.match({
+  "location": "StepDefinitions.Steps.user_can_view_Add_new_customer_page()"
 });
-formatter.examples({
-  "name": "",
-  "description": "",
-  "keyword": "Examples",
-  "rows": [
-    {
-      "cells": [
-        "Email",
-        "Password"
-      ]
-    },
-    {
-      "cells": [
-        "mngr402443",
-        "evYvAnU"
-      ]
-    }
-  ]
+formatter.result({
+  "status": "passed"
 });
 formatter.scenario({
-  "name": "Login Data Driven",
+  "name": "Search customer",
   "description": "",
-  "keyword": "Scenario Outline"
+  "keyword": "Scenario"
 });
 formatter.step({
   "name": "User Launch Chrome Browser",
@@ -163,21 +125,11 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "Page title should be \"GTPL Bank Manager HomePage\"",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "StepDefinitions.Steps.page_title_should_be(java.lang.String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "close browser",
+  "name": "User click on Edit",
   "keyword": "And "
 });
 formatter.match({
-  "location": "StepDefinitions.Steps.close_browser()"
+  "location": "StepDefinitions.Steps.user_click_edit()"
 });
 formatter.result({
   "status": "passed"
