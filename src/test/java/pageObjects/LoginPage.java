@@ -17,39 +17,41 @@ public class LoginPage {
 		PageFactory.initElements(rdriver,this);
 	}
 
-	@FindBy(id ="Email")
-	@CacheLookup
-	WebElement txtEmail;
+	@FindBy(xpath="//*[@name='uid']")
+	WebElement txtusername;
 
-	@FindBy(id = "Password")
-	@CacheLookup
-	WebElement txtPassword;
+	@FindBy(xpath="//*[@name='password']")
+	WebElement txtpassword;
 
-	@FindBy(xpath = "//*[@class='button-1 login-button']")
-	@CacheLookup
-	WebElement btnLogin;
+	@FindBy(xpath="//*[@name='btnLogin']")
+	WebElement btmsubmit;
 
-	@FindBy (xpath = "//*[@id=\"navbarText\"]/ul/li[3]/a")
-	@CacheLookup
-	WebElement InkLogout;
-	
-	public void setUserName (String uname) 
+	@FindBy(xpath="/html/body/div[3]/div/ul/li[10]/a")
+    WebElement btnlogout;
+
+
+	public void setUserName(String uname)
 	{
-		txtEmail.clear();
-		txtEmail.sendKeys(uname);
+		txtusername.sendKeys(uname);
 	}
-	public void setPassword (String pwd) {
-		txtPassword.clear();
-		txtPassword. sendKeys (pwd) ;
-	}
-	
-	public void clickLogin()
+	public void setPasswprd(String pwd)
 	{
-		btnLogin.click();
+		txtpassword.sendKeys(pwd);
 	}
-	public void clickLogout()
+
+	public void clickSubmit()
 	{
-		InkLogout.click();
+		btmsubmit.click();
+	}
+
+	public void clicklogout()
+	{
+		btnlogout.click();
+	}
+
+	public WebElement home()
+	{
+	return btnlogout;
 	}
 }
 

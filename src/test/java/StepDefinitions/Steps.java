@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,15 +17,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObjects.AddCustomerPage;
 //import io.cucumber.java.en.*;
 import pageObjects.LoginPage;
 import utilities.LibraryUtils;
 
 
-public class Steps {
+public class Steps extends BaseClass{
 
-	public WebDriver driver;
-	public LoginPage lp;
+
 	@Given("User Launch Chrome Browser")
 	public void user_Launch_Chrome_Browser() {
 		System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//Drivers/chromedriver.exe");
@@ -40,14 +41,14 @@ public class Steps {
 	public void user_enters_Email_as_and_Password_as(String email, String password) {
 
 		lp.setUserName(email);
-		lp.setPassword(password);
+		lp.setPasswprd(password);
 
 	}
 	@When("Click on Login")
 	public void click_on_Login() throws InterruptedException {
-		lp.clickLogin();
-		Thread.sleep(3000);
-			}
+		lp.clickSubmit();
+		Thread.sleep(6000);
+	}
 	@Then("Page title should be {string}")
 	public void page_title_should_be(String title) throws InterruptedException {
 
@@ -59,6 +60,7 @@ public class Steps {
 			Assert.assertEquals(title, driver.getTitle());
 		Thread.sleep(2000);
 		driver.manage().window().maximize();
+		
 	}	
 
 	@Then("close browser")
@@ -66,4 +68,23 @@ public class Steps {
 		driver.quit();
 	}
 
+	// Customers Feature step Definition
+
+	@Then("User can view Dashboad")
+	public void user_can_view_Dashboad() {
+		addcust = new AddCustomerPage(driver);
+		Assert.assertEquals("GTPL Bank Manager HomePage ",addcust.getPageTitle());  
+	}
+
+	@When("User click on new customer menu")
+	public void user_click_on_customers_Menu() throws Exception   {
+		Thread.sleep(3000);
+		addcust.clickOnCustomersMenu();
+	}
+
+	@Then("User can view Add new customer page")
+	public void user_can_view_Add_new_customer_page() throws Exception {
+		Thread.sleep(3000);
+		Assert.assertEquals("Gtpl Bank New Customer Entry Page", addcust.getPageTitle());
+	}
 }

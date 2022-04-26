@@ -17,22 +17,27 @@ public class AddCustomerPage {
 	By lnkCustomers_menu=By.xpath("//al@href='#'1//span[contains(text(),'Customers')]");
 	By lnkCustomers_menuitem=By.xpath("//span[@class='menu-item-title'][contains(text(),'Customer')]");		
 	By btnAddnew=By.xpath("//a(@class='btn bg-blue']"); //Add new
+
+	//Action Methods
+	public String getPageTitle()
+	{
+		return ldriver.getTitle();
+	}
 	
-//Action Methods
 	public void clickOnCustomersMenu() {
-	
+
 		ldriver.findElement(lnkCustomers_menu).click();
-	
-	    }
-		public void clickonCustomersMenuItem(){
-	
+
+	}
+	public void clickonCustomersMenuItem(){
+
 		ldriver.findElement(lnkCustomers_menuitem).click();
-		}
-		
-		public void clickOnAddnew() {
-	
+	}
+
+	public void clickOnAddnew() {
+
 		ldriver.findElement(btnAddnew).click();
-		}
+	}
 
 }
 
