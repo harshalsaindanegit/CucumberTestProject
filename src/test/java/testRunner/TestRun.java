@@ -14,7 +14,7 @@ import io.cucumber.junit.Cucumber;
 		dryRun=false,
 		monochrome=true,
 		plugin= {"pretty", "html:test-output"},
-		tags= {"@regression"}
+		tags= {"@sanity"}
       )
 
 public class TestRun {

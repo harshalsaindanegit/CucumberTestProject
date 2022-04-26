@@ -53,41 +53,31 @@ formatter.result({
   "status": "passed"
 });
 formatter.scenario({
-  "name": "Add new Customer",
+  "name": "Search customer",
   "description": "",
   "keyword": "Scenario",
   "tags": [
     {
-      "name": "@regression"
+      "name": "@sanity"
     }
   ]
 });
 formatter.step({
-  "name": "User can view Dashboad",
-  "keyword": "Then "
+  "name": "User click on Edit",
+  "keyword": "And "
 });
 formatter.match({
-  "location": "StepDefinitions.Steps.user_can_view_Dashboad()"
+  "location": "StepDefinitions.Steps.user_click_edit()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "User click on new customer menu",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "StepDefinitions.Steps.user_click_on_customers_Menu()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "User can view Add new customer page",
+  "name": "User can view Edit customer page",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "StepDefinitions.Steps.user_can_view_Add_new_customer_page()"
+  "location": "StepDefinitions.Steps.user_can_view_Edit_customer_page()"
 });
 formatter.result({
   "status": "passed"
@@ -108,66 +98,13 @@ formatter.feature({
   "description": "",
   "keyword": "Feature"
 });
-formatter.scenarioOutline({
-  "name": "Login Data Driven",
-  "description": "",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "name": "@regression"
-    }
-  ]
-});
-formatter.step({
-  "name": "User Launch Chrome Browser",
-  "keyword": "Given "
-});
-formatter.step({
-  "name": "User opens URL \"https://demo.guru99.com/V1/index.php\"",
-  "keyword": "When "
-});
-formatter.step({
-  "name": "User enters Email as \"\u003cEmail\u003e\" and Password as \"\u003cPassword\u003e\"",
-  "keyword": "And "
-});
-formatter.step({
-  "name": "Click on Login",
-  "keyword": "And "
-});
-formatter.step({
-  "name": "Page title should be \"GTPL Bank Manager HomePage\"",
-  "keyword": "Then "
-});
-formatter.step({
-  "name": "close browser",
-  "keyword": "And "
-});
-formatter.examples({
-  "name": "",
-  "description": "",
-  "keyword": "Examples",
-  "rows": [
-    {
-      "cells": [
-        "Email",
-        "Password"
-      ]
-    },
-    {
-      "cells": [
-        "mngr402443",
-        "evYvAnU"
-      ]
-    }
-  ]
-});
 formatter.scenario({
-  "name": "Login Data Driven",
+  "name": "Successful Login with valid credentials",
   "description": "",
-  "keyword": "Scenario Outline",
+  "keyword": "Scenario",
   "tags": [
     {
-      "name": "@regression"
+      "name": "@sanity"
     }
   ]
 });
