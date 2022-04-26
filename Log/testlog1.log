@@ -97,6 +97,7 @@
 2022-04-26 20:55:44,452 [main] INFO BDD Cucumber Test Project - *********Providing Login Details********
 2022-04-26 20:55:53,928 [main] INFO BDD Cucumber Test Project - *********Login Pass********
 2022-04-26 20:55:56,112 [main] INFO BDD Cucumber Test Project - *********Closing Browser********
+<<<<<<< HEAD
 2022-04-26 21:33:04,501 [main] INFO BDD Cucumber Test Project - *********Launching Browser********
 2022-04-26 21:33:04,799 [main] INFO BDD Cucumber Test Project - *********Openning URL********
 2022-04-26 21:33:15,426 [main] INFO BDD Cucumber Test Project - *********Providing Login Details********
@@ -133,3 +134,5 @@
 2022-04-26 22:00:46,990 [main] INFO BDD Cucumber Test Project - *********Providing Login Details********
 2022-04-26 22:01:07,329 [main] INFO BDD Cucumber Test Project - *********Login Pass********
 2022-04-26 22:01:09,655 [main] INFO BDD Cucumber Test Project - *********Closing Browser********
+=======
+>>>>>>> 57a4643d86e463bbaee1238341ec41ed0b82a510
