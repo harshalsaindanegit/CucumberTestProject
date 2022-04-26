@@ -1,5 +1,6 @@
 Feature: Login
 
+@sanity
 Scenario: Successful Login with valid credentials
 	Given User Launch Chrome Browser 
 	When User opens URL "https://demo.guru99.com/V1/index.php"
@@ -8,7 +9,7 @@ Scenario: Successful Login with valid credentials
 	Then Page title should be "GTPL Bank Manager HomePage"
 	And close browser
 	
-	
+	@regression
 	Scenario Outline: Login Data Driven
 	Given User Launch Chrome Browser 
 	When User opens URL "https://demo.guru99.com/V1/index.php"

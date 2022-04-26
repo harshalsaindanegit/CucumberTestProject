@@ -2,6 +2,10 @@ package StepDefinitions;
 
 import java.awt.AWTException;
 import java.awt.Robot;import java.awt.event.KeyEvent;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -10,12 +14,14 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -28,15 +34,34 @@ import utilities.LibraryUtils;
 
 public class Steps extends BaseClass{
 
+	@Before
+	public void sertup() throws IOException
+	{
+		configprop=new Properties();
+		FileInputStream configPropfile=new FileInputStream("config.properties");
+		configprop.load(configPropfile);
+		
+		logger= Logger.getLogger("BDD Cucumber Test Project");
+	    PropertyConfigurator.configure("Log4j.properties");
+	    
+	    String br=configprop.getProperty("browser");
+	    
+	    if(br.equals("chrome")) 
+	    {	    
+		System.setProperty("webdriver.chrome.driver",configprop.getProperty("chromepath"));
+		driver=new ChromeDriver();
+	    }
+	    if(br.equals("msedge")) 
+	    {
+	    	System.setProperty("webdriver.edge.driver", configprop.getProperty("msedgepath"));
+		    driver=new EdgeDriver();
+	    } 	
+		logger.info("*********Launching Browser********");
+	}
 
 	@Given("User Launch Chrome Browser")
 	public void user_Launch_Chrome_Browser() {
-		logger= Logger.getLogger("BDD Cucumber Test Project");
-	    PropertyConfigurator.configure("Log4j.properties");
-
-		System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//Drivers/chromedriver.exe");
-		driver=new ChromeDriver();
-		logger.info("*********Launching Browser********");
+		
 		lp=new LoginPage(driver);
 	}	
 	@When("User opens URL {string}")

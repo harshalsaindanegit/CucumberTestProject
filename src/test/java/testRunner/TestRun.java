@@ -13,7 +13,8 @@ import io.cucumber.junit.Cucumber;
 		glue="StepDefinitions", 
 		dryRun=false,
 		monochrome=true,
-		plugin= {"pretty", "html:test-output"}
+		plugin= {"pretty", "html:test-output"},
+		tags= {"@regression"}
       )
 
 public class TestRun {

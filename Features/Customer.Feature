@@ -6,12 +6,14 @@ Feature: Customers
 		And User enters Email as "mngr402443" and Password as "evYvAnU"
 		And Click on Login 
 
+@regression
 Scenario: Add new Customer		
 		Then User can view Dashboad
 		When User click on new customer menu
 		Then User can view Add new customer page
 		And close browser
 		
+@sanity		
 Scenario: Search customer
 		And User click on Edit
 		Then User can view Edit customer page 
