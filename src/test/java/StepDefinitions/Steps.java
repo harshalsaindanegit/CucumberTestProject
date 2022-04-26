@@ -97,7 +97,13 @@ public class Steps extends BaseClass{
 		SearchCustomerPage searchcust=new SearchCustomerPage(driver);
 		searchcust.clickEdit();
 		Thread.sleep(3000);
-		Assert.assertEquals(driver.getTitle(),"Gtpl Bank Edit Customer Page");
 	}
+	@Then("User can view Edit customer page")
+	public void user_can_view_Edit_customer_page() throws Exception
+	{
+		Assert.assertEquals(driver.getTitle(),"Gtpl Bank Edit Customer Page");
+		driver.quit();
+	}
+
 }
 

@@ -14,7 +14,8 @@ Scenario: Search customer
 		When User opens URL "https://demo.guru99.com/V1/index.php"
 		And User enters Email as "mngr402443" and Password as "evYvAnU"
 		And Click on Login
-		And User click on Edit 
+		And User click on Edit
+		Then User can view Edit customer page 
 		
 		
 		

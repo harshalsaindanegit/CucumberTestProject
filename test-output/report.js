@@ -134,4 +134,14 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
+formatter.step({
+  "name": "User can view Edit customer page",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "StepDefinitions.Steps.user_can_view_Edit_customer_page()"
+});
+formatter.result({
+  "status": "passed"
+});
 });
